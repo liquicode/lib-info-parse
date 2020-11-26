@@ -13,30 +13,30 @@
       "homepage": "http://liquicode.com"
     }
   ],
-	"main": "src/lib-info-parse.js",
+  "main": "src/lib-info-parse.js",
   "files": [
-		"readme.md",
-		"LICENSE",
-		"VERSION",
-		"dist/*",
-		"docs/*",
-		"src/*",
-		"tests/*"
-	],
-	"ignore": [
-		".*",
-		"~*",
-		"bower_components",
-		"node_modules",
-		"build"
-	],
-	"keywords": [
-		"javascript",
-		"js",
-		"nodejs",
-		"node"
-	],
-"dependencies": {},
+    "readme.md",
+    "LICENSE",
+    "VERSION",
+    "dist/*",
+    "docs/*",
+    "src/*",
+    "tests/*"
+  ],
+  "ignore": [
+    ".*",
+    "~*",
+    "bower_components",
+    "node_modules",
+    "build"
+  ],
+  "keywords": [
+    "javascript",
+    "js",
+    "nodejs",
+    "node"
+  ],
+  "dependencies": {},
   "devDependencies": {
     "@vivaxy/here": "^3.4.0",
     "mocha": "^7.1.2",
