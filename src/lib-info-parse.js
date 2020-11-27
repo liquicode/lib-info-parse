@@ -16,71 +16,71 @@ exports.NewInfoParse =
 			GetBeforeLastWord: LIB_PARSING.GetBeforeLastWord,
 		};
 
-		let parser_source = null;
+		let parser_lib = null;
 		let parser = null;
 
 		// Person Name Parser
-		parser_source = require( './parsers/person-name.js' );
+		parser_lib = require( './parsers/person-name.js' );
 		parser =
 		{
 			infoparse: infoparse,
 			parser_name: 'PersonName',
-			Parse: parser_source.Parse,
-			Unparse: parser_source.Unparse,
-			NewParts: parser_source.NewParts,
-			MatchParts: parser_source.MatchParts,
+			Parse: parser_lib.Parse,
+			Unparse: parser_lib.Unparse,
+			// NewParts: parser_source.NewParts,
+			// MatchParts: parser_source.MatchParts,
 		};
 		infoparse.PersonName = parser;
 
 		// Phone Number Parser
-		parser_source = require( './parsers/phone-number.js' );
+		parser_lib = require( './parsers/phone-number.js' );
 		parser =
 		{
 			infoparse: infoparse,
 			parser_name: 'PhoneNumber',
-			Parse: parser_source.Parse,
-			Unparse: parser_source.Unparse,
-			NewParts: parser_source.NewParts,
-			MatchParts: parser_source.MatchParts,
+			Parse: parser_lib.Parse,
+			Unparse: parser_lib.Unparse,
+			// NewParts: parser_source.NewParts,
+			// MatchParts: parser_source.MatchParts,
 		};
 		infoparse.PhoneNumber = parser;
 
 		// Mail Address Parser
-		parser_source = require( './parsers/mail-address.js' );
+		parser_lib = require( './parsers/mail-address.js' );
 		parser =
 		{
 			infoparse: infoparse,
 			parser_name: 'MailAddress',
-			Parse: parser_source.Parse,
-			Unparse: parser_source.Unparse,
-			NewParts: parser_source.NewParts,
-			MatchParts: parser_source.MatchParts,
+			Parse: parser_lib.Parse,
+			Unparse: parser_lib.Unparse,
+			// NewParts: parser_source.NewParts,
+			// MatchParts: parser_source.MatchParts,
 		};
 		infoparse.MailAddress = parser;
 
 		// Street Address Parser
-		parser_source = require( './parsers/street-address.js' );
+		parser_lib = require( './parsers/street-address.js' );
 		parser =
 		{
 			infoparse: infoparse,
 			parser_name: 'StreetAddress',
-			Parse: parser_source.Parse,
-			Unparse: parser_source.Unparse,
-			NewParts: parser_source.NewParts,
-			MatchParts: parser_source.MatchParts,
+			Parse: parser_lib.Parse,
+			Unparse: parser_lib.Unparse,
+			// NewParts: parser_source.NewParts,
+			// MatchParts: parser_source.MatchParts,
 		};
 		infoparse.StreetAddress = parser;
 
 		// Phone Number Parser
-		parser_source = require( './parsers/date-time.js' );
+		parser_lib = require( './parsers/date-time.js' );
 		parser =
 		{
 			infoparse: infoparse,
 			parser_name: 'DateTime',
-			Parse: parser_source.Parse,
-			Unparse: parser_source.Unparse,
-			NewParts: parser_source.NewParts,
-			MatchParts: parser_source.MatchParts,
+			Parse: parser_lib.Parse,
+			Unparse: parser_lib.Unparse,
+			// NewParts: parser_source.NewParts,
+			// MatchParts: parser_source.MatchParts,
 		};
 		infoparse.DateTime = parser;
 
