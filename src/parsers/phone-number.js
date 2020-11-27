@@ -1,23 +1,26 @@
 'use strict';
 
 const LIB_STRING = require( 'string' );
+const LIB_STRING_SIMILARITY = require( 'string-similarity' );
 
 //=====================================================================
 //=====================================================================
 //
-//		PARSE PHONE NUMBER
+//		PHONE NUMBER PARSER
 //
 //=====================================================================
 //=====================================================================
 
-exports.GetPhoneNumberParts = GetPhoneNumberParts;
-exports.GetPhoneNumber = GetPhoneNumber;
+exports.Parse = GetPhoneNumberParts;
+exports.Unparse = GetPhoneNumber;
+exports.NewParts = NewPhoneNumberPartsObject;
+exports.MatchParts = MatchPhoneNumberParts;
 
 
 //---------------------------------------------------------------------
 function GetPhoneNumberParts( PhoneNumber )
 {
-	let phone_number_parts = this.NewPhoneNumberPartsObject();
+	let phone_number_parts = NewPhoneNumberPartsObject();
 	if ( !PhoneNumber ) { return phone_number_parts; }
 
 	// Massage phone number into workable state.
@@ -109,4 +112,31 @@ function GetPhoneNumber( PhoneNumberParts )
 	phone_number = phone_number.trim();
 	return phone_number;
 }
+
+
+//---------------------------------------------------------------------
+function NewPhoneNumberPartsObject()
+{
+	return {
+		country_code: '',
+		area_code: '',
+		prefix: '',
+		number: '',
+		extension: '',
+	};
+}
+
+
+//---------------------------------------------------------------------
+function MatchPhoneNumberParts( PhoneNumberParts, MatchesParts )
+{
+	let result = 0;
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PhoneNumberParts.country_code, MatchesParts.country_code );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PhoneNumberParts.area_code, MatchesParts.area_code );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PhoneNumberParts.prefix, MatchesParts.prefix );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PhoneNumberParts.number, MatchesParts.number );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PhoneNumberParts.extension, MatchesParts.extension );
+	return ( result / 5 );
+}
+
 

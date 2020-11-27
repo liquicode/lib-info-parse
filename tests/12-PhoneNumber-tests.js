@@ -6,20 +6,20 @@ const LIB_ASSERT = require( 'assert' );
 
 
 //---------------------------------------------------------------------
-describe( `03) PhoneNumber Tests`,
+describe( `12) Phone Number Tests`,
 	function ()
 	{
 
 
 		//---------------------------------------------------------------------
-		let Parse = null;
+		let InfoParse = null;
 
 		//---------------------------------------------------------------------
 		beforeEach(
 			function ()
 			{
-				Parse = LIB_INFO_PARSE.NewInfoParse();
-				LIB_ASSERT.ok( Parse, `Parser failed to create.` );
+				InfoParse = LIB_INFO_PARSE.NewInfoParse();
+				LIB_ASSERT.ok( InfoParse, `Parser failed to create.` );
 				return;
 			} );
 
@@ -27,227 +27,227 @@ describe( `03) PhoneNumber Tests`,
 		afterEach(
 			function ()
 			{
-				Parse = null;
+				InfoParse = null;
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '567890' )                             --> 567890`,
+		it( `PhoneNumber.Parse( '567890' )                             --> 567890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '567890' );
+				let parts = InfoParse.PhoneNumber.Parse( '567890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '' );
 				LIB_ASSERT.strictEqual( parts.area_code, '' );
 				LIB_ASSERT.strictEqual( parts.prefix, '' );
 				LIB_ASSERT.strictEqual( parts.number, '567890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '567890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '4567890' )                            --> 456-7890`,
+		it( `PhoneNumber.Parse( '4567890' )                            --> 456-7890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '4567890' );
+				let parts = InfoParse.PhoneNumber.Parse( '4567890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '' );
 				LIB_ASSERT.strictEqual( parts.area_code, '' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '456-7890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '456-7890' )                           --> 456-7890`,
+		it( `PhoneNumber.Parse( '456-7890' )                           --> 456-7890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '456-7890' );
+				let parts = InfoParse.PhoneNumber.Parse( '456-7890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '' );
 				LIB_ASSERT.strictEqual( parts.area_code, '' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '456-7890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '1234567890' )                         --> (123) 456-7890`,
+		it( `PhoneNumber.Parse( '1234567890' )                         --> (123) 456-7890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '1234567890' );
+				let parts = InfoParse.PhoneNumber.Parse( '1234567890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '(123) 456-7890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '1234567890x42' )                      --> (123) 456-7890 ext 42`,
+		it( `PhoneNumber.Parse( '1234567890x42' )                      --> (123) 456-7890 ext 42`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '1234567890x42' );
+				let parts = InfoParse.PhoneNumber.Parse( '1234567890x42' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '42' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '(123) 456-7890 ext 42' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '123-456-7890' )                       --> (123) 456-7890`,
+		it( `PhoneNumber.Parse( '123-456-7890' )                       --> (123) 456-7890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '123-456-7890' );
+				let parts = InfoParse.PhoneNumber.Parse( '123-456-7890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '(123) 456-7890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '(123) 456-7890' )                     --> (123) 456-7890`,
+		it( `PhoneNumber.Parse( '(123) 456-7890' )                     --> (123) 456-7890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '(123) 456-7890' );
+				let parts = InfoParse.PhoneNumber.Parse( '(123) 456-7890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '(123) 456-7890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '011 (123) 456-7890' )                 --> +011 (123) 456-7890`,
+		it( `PhoneNumber.Parse( '011 (123) 456-7890' )                 --> +011 (123) 456-7890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '011 (123) 456-7890' );
+				let parts = InfoParse.PhoneNumber.Parse( '011 (123) 456-7890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '011' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '+011 (123) 456-7890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '+011 (123) 456-7890' )                --> +011 (123) 456-7890`,
+		it( `PhoneNumber.Parse( '+011 (123) 456-7890' )                --> +011 (123) 456-7890`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '+011 (123) 456-7890' );
+				let parts = InfoParse.PhoneNumber.Parse( '+011 (123) 456-7890' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '011' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '+011 (123) 456-7890' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '+011 (123) 456-7890 ext 42' )         --> +011 (123) 456-7890 ext 42`,
+		it( `PhoneNumber.Parse( '+011 (123) 456-7890 ext 42' )         --> +011 (123) 456-7890 ext 42`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '+011 (123) 456-7890 ext 42' );
+				let parts = InfoParse.PhoneNumber.Parse( '+011 (123) 456-7890 ext 42' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '011' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '42' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '+011 (123) 456-7890 ext 42' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '+011 (123) 456-7890 x42' )            --> +011 (123) 456-7890 ext 42`,
+		it( `PhoneNumber.Parse( '+011 (123) 456-7890 x42' )            --> +011 (123) 456-7890 ext 42`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '+011 (123) 456-7890 x42' );
+				let parts = InfoParse.PhoneNumber.Parse( '+011 (123) 456-7890 x42' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '011' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '42' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '+011 (123) 456-7890 ext 42' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '+011 123-456-7890 x42' )              --> +011 (123) 456-7890 ext 42`,
+		it( `PhoneNumber.Parse( '+011 123-456-7890 x42' )              --> +011 (123) 456-7890 ext 42`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '+011 123-456-7890 x42' );
+				let parts = InfoParse.PhoneNumber.Parse( '+011 123-456-7890 x42' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '011' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '42' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '+011 (123) 456-7890 ext 42' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPhoneNumberParts( '+011 123.456.7890 x42' )              --> +011 (123) 456-7890 ext 42`,
+		it( `PhoneNumber.Parse( '+011 123.456.7890 x42' )              --> +011 (123) 456-7890 ext 42`,
 			async function ()
 			{
-				let parts = Parse.GetPhoneNumberParts( '+011 123.456.7890 x42' );
+				let parts = InfoParse.PhoneNumber.Parse( '+011 123.456.7890 x42' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.country_code, '011' );
 				LIB_ASSERT.strictEqual( parts.area_code, '123' );
 				LIB_ASSERT.strictEqual( parts.prefix, '456' );
 				LIB_ASSERT.strictEqual( parts.number, '7890' );
 				LIB_ASSERT.strictEqual( parts.extension, '42' );
-				parts = Parse.GetPhoneNumber( parts );
+				parts = InfoParse.PhoneNumber.Unparse( parts );
 				LIB_ASSERT.strictEqual( parts, '+011 (123) 456-7890 ext 42' );
 				return;
 			} );

@@ -1,6 +1,8 @@
 
 # lib-info-parse
 
+A library to parse general information like names, addresses, phone numbers, etc.
+
 
 ---------------------------------------------------------------------
 
@@ -22,6 +24,10 @@ const Lib = require( '@liquicode/lib-info-parse' );
 
 
 ## Simple Usage
+
+```javascript
+
+```
 
 
 ---------------------------------------------------------------------

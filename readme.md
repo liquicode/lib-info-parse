@@ -1,6 +1,8 @@
 
 # lib-info-parse
 
+A library to parse general information like names, addresses, phone numbers, etc.
+
 
 ---------------------------------------------------------------------
 

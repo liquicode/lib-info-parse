@@ -1,21 +1,19 @@
 <!-- _coverpage.md -->
 
-![logo](media/lib-datatable-banner-300x60.png)
+![logo](media/lib-info-parse-banner.png)
 
-# lib-datatable <small>v 0.0.3</small>
-
-<hr>
-
-> A NodeJS library to manipulate an in memory table (array of arrays)
-
-> Use Excel-like Addressing (A1)
+# lib-info-parse <small>v 0.0.1</small>
 
 <hr>
 
-- Simple and lightweight (less than 12kb)
-- No dependencies - 100% JavaScript
+> A library to parse general information like names, addresses, phone numbers, etc.
 
-[GitHub](https://github.com/liquicode/lib-datatable)
+<hr>
+
+- Powerful parsing functions
+- Backed by a built-in reference data
+
+[GitHub](https://github.com/liquicode/lib-info-parse)
 [Get Started](guides/readme.md)
 
 

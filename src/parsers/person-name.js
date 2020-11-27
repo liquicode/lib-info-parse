@@ -1,23 +1,26 @@
 'use strict';
 
 const LIB_STRING = require( 'string' );
+const LIB_STRING_SIMILARITY = require( 'string-similarity' );
 
 //=====================================================================
 //=====================================================================
 //
-//		PARSE PERSON NAME
+//		PERSON NAME PARSER
 //
 //=====================================================================
 //=====================================================================
 
-exports.GetPersonNameParts = GetPersonNameParts;
-exports.GetPersonName = GetPersonName;
+exports.Parse = GetPersonNameParts;
+exports.Unparse = GetPersonName;
+exports.NewParts = NewPersonNamePartsObject;
+exports.MatchParts = MatchPersonNameParts;
 
 
 //---------------------------------------------------------------------
 function GetPersonNameParts( PersonName )
 {
-	let person_name_parts = this.NewPersonNamePartsObject();
+	let person_name_parts = NewPersonNamePartsObject();
 	if ( !PersonName ) { return person_name_parts; }
 
 	// Remove punctuation and whitespace.
@@ -115,4 +118,31 @@ function GetPersonName( PersonNameParts )
 	person_name = LIB_STRING( person_name ).titleCase().trim().s;
 	return person_name;
 }
+
+
+//---------------------------------------------------------------------
+function NewPersonNamePartsObject()
+{
+	return {
+		honorific: '',
+		first_name: '',
+		middle_name: '',
+		last_name: '',
+		suffix: '',
+	};
+}
+
+
+//---------------------------------------------------------------------
+function MatchPersonNameParts( PersonNameParts, MatchesParts )
+{
+	let result = 0;
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PersonNameParts.honorific, MatchesParts.honorific );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PersonNameParts.first_name, MatchesParts.first_name );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PersonNameParts.middle_name, MatchesParts.middle_name );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PersonNameParts.last_name, MatchesParts.last_name );
+	result += LIB_STRING_SIMILARITY.compareTwoStrings( PersonNameParts.suffix, MatchesParts.suffix );
+	return ( result / 5 );
+}
+
 

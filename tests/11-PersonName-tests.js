@@ -6,20 +6,20 @@ const LIB_ASSERT = require( 'assert' );
 
 
 //---------------------------------------------------------------------
-describe( `01) PersonName Tests`,
+describe( `11) Person Name Tests`,
 	function ()
 	{
 
 
 		//---------------------------------------------------------------------
-		let Parse = null;
+		let InfoParse = null;
 
 		//---------------------------------------------------------------------
 		beforeEach(
 			function ()
 			{
-				Parse = LIB_INFO_PARSE.NewInfoParse();
-				LIB_ASSERT.ok( Parse, `Parser failed to create.` );
+				InfoParse = LIB_INFO_PARSE.NewInfoParse();
+				LIB_ASSERT.ok( InfoParse, `Parser failed to create.` );
 				return;
 			} );
 
@@ -27,149 +27,149 @@ describe( `01) PersonName Tests`,
 		afterEach(
 			function ()
 			{
-				Parse = null;
+				InfoParse = null;
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts() - returns: an empty PersonName object.`,
+		it( `PersonName.Parse() - returns: an empty PersonName object.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts();
+				let parts = InfoParse.PersonName.Parse();
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.first_name, '' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, '' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( null ) - returns: an empty PersonName object.`,
+		it( `PersonName.Parse( null ) - returns: an empty PersonName object.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( null );
+				let parts = InfoParse.PersonName.Parse( null );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.first_name, '' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, '' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( '' ) - returns: an empty PersonName object.`,
+		it( `PersonName.Parse( '' ) - returns: an empty PersonName object.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( '' );
+				let parts = InfoParse.PersonName.Parse( '' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.first_name, '' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, '' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( 'Smith' ) - returns: last_name.`,
+		it( `PersonName.Parse( 'Smith' ) - returns: last_name.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( 'Smith' );
+				let parts = InfoParse.PersonName.Parse( 'Smith' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, 'Smith' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( 'Mr. Smith' ) - returns: honorific, last_name.`,
+		it( `PersonName.Parse( 'Mr. Smith' ) - returns: honorific, last_name.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( 'Mr. Smith' );
+				let parts = InfoParse.PersonName.Parse( 'Mr. Smith' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.honorific, 'mr' );
 				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, 'Mr Smith' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( 'John Smith' ) - returns: first_name, last_name.`,
+		it( `PersonName.Parse( 'John Smith' ) - returns: first_name, last_name.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( 'John Smith' );
+				let parts = InfoParse.PersonName.Parse( 'John Smith' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.first_name, 'john' );
 				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, 'John Smith' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( 'John J. Smith' ) - returns: first_name, middle_name, last_name.`,
+		it( `PersonName.Parse( 'John J. Smith' ) - returns: first_name, middle_name, last_name.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( 'John J. Smith' );
+				let parts = InfoParse.PersonName.Parse( 'John J. Smith' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.first_name, 'john' );
 				LIB_ASSERT.strictEqual( parts.middle_name, 'j' );
 				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, 'John J Smith' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( 'Mr. John Smith' ) - returns: honorific, first_name, last_name.`,
+		it( `PersonName.Parse( 'Mr. John Smith' ) - returns: honorific, first_name, last_name.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( 'Mr. John Smith' );
+				let parts = InfoParse.PersonName.Parse( 'Mr. John Smith' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.honorific, 'mr' );
 				LIB_ASSERT.strictEqual( parts.first_name, 'john' );
 				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, 'Mr John Smith' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( 'Mr. John J. Smith' ) - returns: honorific, first_name, middle_name, last_name.`,
+		it( `PersonName.Parse( 'Mr. John J. Smith' ) - returns: honorific, first_name, middle_name, last_name.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( 'Mr. John J. Smith' );
+				let parts = InfoParse.PersonName.Parse( 'Mr. John J. Smith' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.honorific, 'mr' );
 				LIB_ASSERT.strictEqual( parts.first_name, 'john' );
 				LIB_ASSERT.strictEqual( parts.middle_name, 'j' );
 				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, 'Mr John J Smith' );
 				return;
 			} );
 
 
 		//---------------------------------------------------------------------
-		it( `GetPersonNameParts( 'Mr. John J. Smith, Jr.' ) - returns: honorific, first_name, middle_name, last_name, suffix.`,
+		it( `PersonName.Parse( 'Mr. John J. Smith, Jr.' ) - returns: honorific, first_name, middle_name, last_name, suffix.`,
 			async function ()
 			{
-				let parts = Parse.GetPersonNameParts( 'Mr. John J. Smith, Jr.' );
+				let parts = InfoParse.PersonName.Parse( 'Mr. John J. Smith, Jr.' );
 				LIB_ASSERT.notStrictEqual( parts, null );
 				LIB_ASSERT.strictEqual( parts.honorific, 'mr' );
 				LIB_ASSERT.strictEqual( parts.first_name, 'john' );
 				LIB_ASSERT.strictEqual( parts.middle_name, 'j' );
 				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
 				LIB_ASSERT.strictEqual( parts.suffix, 'jr' );
-				let text = Parse.GetPersonName( parts );
+				let text = InfoParse.PersonName.Unparse( parts );
 				LIB_ASSERT.strictEqual( text, 'Mr John J Smith Jr' );
 				return;
 			} );
