@@ -23,6 +23,10 @@ const Lib = require( '@liquicode/lib-info-parse' );
 
 ## Simple Usage
 
+```javascript
+
+```
+
 
 ---------------------------------------------------------------------
 
