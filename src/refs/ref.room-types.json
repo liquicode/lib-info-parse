@@ -1,0 +1,7 @@
+[
+	"apt", "apartment",
+	"ste", "suite",
+	"bldg", "building",
+	"fl", "floor",
+	"#", "room", "unit"
+]

@@ -1,0 +1,16 @@
+[
+	"way",
+	"loop",
+	"st", "street",
+	"rd", "road",
+	"dr", "drive",
+	"pl", "place",
+	"cir", "circle",
+	"ct", "court",
+	"ln", "lane",
+	"ave", "avenue",
+	"blvd", "boulevard",
+	"hwy", "highway",
+	"tpk", "turnpike",
+	"ter", "trce", "terrace"
+]

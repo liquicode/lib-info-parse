@@ -1,0 +1,52 @@
+[
+	{ 
+		"day_number": 1,
+		"day_name": "monday",
+		"short_name": "mon"
+	},
+	{ 
+		"day_number": 2,
+		"day_name": "tuesday",
+		"short_name": "tue"
+	},
+	{ 
+		"day_number": 2,
+		"day_name": "tuesday",
+		"short_name": "tues"
+	},
+	{ 
+		"day_number": 3,
+		"day_name": "wednesday",
+		"short_name": "wed"
+	},
+	{ 
+		"day_number": 4,
+		"day_name": "thursday",
+		"short_name": "thu"
+	},
+	{ 
+		"day_number": 4,
+		"day_name": "thursday",
+		"short_name": "thur"
+	},
+	{ 
+		"day_number": 4,
+		"day_name": "thursday",
+		"short_name": "thurs"
+	},
+	{ 
+		"day_number": 5,
+		"day_name": "friday",
+		"short_name": "fri"
+	},
+	{ 
+		"day_number": 6,
+		"day_name": "saturday",
+		"short_name": "sat"
+	},
+	{ 
+		"day_number": 7,
+		"month_name": "sunday",
+		"short_name": "sun"
+	}
+]

@@ -36,7 +36,10 @@
     "nodejs",
     "node"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "string": "^3.3.3",
+    "string-similarity": "^4.0.2"
+  },
   "devDependencies": {
     "@vivaxy/here": "^3.4.0",
     "mocha": "^7.1.2",

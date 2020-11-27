@@ -1,0 +1,24 @@
+[
+	{
+		"country_code": "usa",
+		"names": [
+			"usa",
+			"us",
+			"america"
+		]
+	},
+	{
+		"country_code": "ca",
+		"names": [
+			"ca",
+			"canada"
+		]
+	},
+	{
+		"country_code": "uk",
+		"names": [
+			"uk",
+			"britain"
+		]
+	}
+]
