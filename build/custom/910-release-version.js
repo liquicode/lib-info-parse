@@ -3,6 +3,13 @@
 
 Finalizes a library project for release and establishes a new version.
 
+Dependencies:
+
+- `git`, `npm`, `node`
+- `build/webpack/010-webpack.sh`
+- `build/s3/810-s3-sync-docs.sh`
+
+
 # Procedure
 
 - Loads the package.json file to obtain current version number.
@@ -42,6 +49,7 @@ const LIB_PATH = require( 'path' );
 const LIB_CHILD_PROCESS = require( 'child_process' );
 
 const NPM = false;
+const S3_DOCS = true;
 
 
 //---------------------------------------------------------------------
@@ -52,7 +60,6 @@ function print_command_output( Command, Output )
 	console.log( `stdout: \n${Output.stdout}` );
 	console.log( `stderr: \n${Output.stderr}` );
 	console.log( '------------------------------------------' );
-	console.log( '\n' );
 	return;
 }
 
@@ -157,6 +164,13 @@ function replace_text( Text, Search, Replace )
 		// - Create new npm version: `npm publish . --access public`
 		console.log( 'Create new npm version' );
 		await execute_command( `npm publish . --access public` );
+	}
+
+	if ( S3_DOCS )
+	{
+		// - Update S3 docs: `bash build/s3/810-s3-sync-docs.sh`
+		console.log( 'Update S3 docs' );
+		await execute_command( `bash build/s3/810-s3-sync-docs.sh` );
 	}
 
 	//---------------------------------------------------------------------

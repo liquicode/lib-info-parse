@@ -58,7 +58,7 @@
     ✓ MailAddress.Parse( 'FL, USA' ) - returns: state, country.
     ✓ MailAddress.Parse( 'Fl, Usa' ) - returns: state, country.
     ✓ MailAddress.Parse( 'Miami Fl, Usa' ) - returns: city, state, country.
-    ✓ MailAddress.Parse( 'Miami, Fl, Usa' ) - returns: city, state, country. (8ms)
+    ✓ MailAddress.Parse( 'Miami, Fl, Usa' ) - returns: city, state, country. (7ms)
     ✓ MailAddress.Parse( '123 Main St, Miami, Fl 33050 Usa' ) - returns: street, city, state, zip, country.
     ✓ MailAddress.Parse( '123 Main St, Miami, Fl 33050-1234 Usa' ) - returns: street, city, state, zip, country.
     ✓ MailAddress.Parse( '123 Main St Miami Fl 33050 Usa' ) - returns: street, city, state, zip, country.
@@ -116,7 +116,7 @@
       ✓ reject: garbage
 
 
-  93 passing (77ms)
+  93 passing (78ms)
 
 
 ```
