@@ -2,7 +2,7 @@
 
 ![logo](media/lib-info-parse-banner.png)
 
-# lib-info-parse <small>v 0.0.2</small>
+# lib-info-parse <small>(v 0.0.2)</small>
 
 <hr>
 
@@ -18,9 +18,8 @@
 
 
 <!-- background image -->
-
 <!-- ![]() -->
 
 <!-- background color -->
-
-![color](#cceeff)
+<!-- ![color](#cceeff) -->
+<!-- ![color](#2980B9) -->
