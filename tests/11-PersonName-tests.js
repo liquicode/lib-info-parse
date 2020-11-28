@@ -175,4 +175,21 @@ describe( `11) Person Name Tests`,
 			} );
 
 
+		//---------------------------------------------------------------------
+		it( `PersonName.Parse( 'Mr John J Smith Jr' ) - returns: honorific, first_name, middle_name, last_name, suffix.`,
+			async function ()
+			{
+				let parts = InfoParse.PersonName.Parse( 'Mr John J Smith Jr' );
+				LIB_ASSERT.notStrictEqual( parts, null );
+				LIB_ASSERT.strictEqual( parts.honorific, 'mr' );
+				LIB_ASSERT.strictEqual( parts.first_name, 'john' );
+				LIB_ASSERT.strictEqual( parts.middle_name, 'j' );
+				LIB_ASSERT.strictEqual( parts.last_name, 'smith' );
+				LIB_ASSERT.strictEqual( parts.suffix, 'jr' );
+				let text = InfoParse.PersonName.Unparse( parts );
+				LIB_ASSERT.strictEqual( text, 'Mr John J Smith Jr' );
+				return;
+			} );
+
+
 	} ); // PersonName Tests

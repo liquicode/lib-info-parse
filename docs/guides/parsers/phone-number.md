@@ -15,6 +15,11 @@
 ```
 
 
+## Reference Data
+
+This parser does not use any reference data.
+
+
 ## Parse( String )
 
 
