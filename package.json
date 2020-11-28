@@ -1,6 +1,6 @@
 {
 	"name": "lib-info-parse",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"description": "A library to parse general information like names, addresses, phone numbers, etc.",
 	"repository": {
 		"type": "git",

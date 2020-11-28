@@ -2,7 +2,7 @@
 
 ![logo](media/lib-info-parse-banner.png)
 
-# lib-info-parse <small>(v0.0.3)</small>
+# lib-info-parse <small>(v0.0.4)</small>
 
 <hr>
 
