@@ -14,7 +14,7 @@
 - Backed by a built-in reference data
 
 [GitHub](https://github.com/liquicode/lib-info-parse)
-[Get Started](guides/readme.md)
+[Get Started](external/readme.md)
 
 
 <!-- background image -->

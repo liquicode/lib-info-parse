@@ -4,22 +4,26 @@
 
 - lib-info-parse Docs
 
-	- [Overview](guides/readme.md)
-	- [InfoParse Object](guides/infoparse-object.md)
+	- [Overview](external/readme.md)
 	- [Techniques](guides/techniques.md)
 
 <hr>
 
-- Parsers
+- Library API
 
-	- [PersonName Parser](guides/parsers/person-name.md)
-	- [PhoneNumber Parser](guides/parsers/phone-number.md)
-	- [MailAddress Parser](guides/parsers/mail-address.md)
-	- [StreetAddress Parser](guides/parsers/street-address.md)
-	- [DateTime Parser](guides/parsers/date-time.md)
+	- [InfoParse Object](api/infoparse-object.md)
+
+	- Parsers
+
+		- [PersonName Parser](api/parsers/person-name.md)
+		- [PhoneNumber Parser](api/parsers/phone-number.md)
+		- [MailAddress Parser](api/parsers/mail-address.md)
+		- [StreetAddress Parser](api/parsers/street-address.md)
+		- [DateTime Parser](api/parsers/date-time.md)
 
 <hr>
 
 - Information
 
-	- [Testing Output](testing-output.md)
+	- [Testing Output](external/testing-output.md)
+	- [Software License](external/license.md)

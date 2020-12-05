@@ -1,5 +1,5 @@
 {
-	"name": "lib-info-parse",
+	"name": "@liquicode/lib-info-parse",
 	"version": "0.0.4",
 	"description": "A library to parse general information like names, addresses, phone numbers, etc.",
 	"repository": {
@@ -16,7 +16,7 @@
 	"main": "src/lib-info-parse.js",
 	"files": [
 		"readme.md",
-		"LICENSE",
+		"license.md",
 		"VERSION",
 		"dist/*",
 		"docs/*",
