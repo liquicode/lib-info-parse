@@ -12,12 +12,11 @@
 //---------------------------------------------------------------------
 const REF =
 {
+	City: require( './refs/ref.locations.city.json' ),
 	State: require( './refs/ref.locations.state.json' ),
 	County: require( './refs/ref.locations.county.json' ),
-	// City: require( './refs/ref.locations.city.json' ),
-	City: require( './refs/ref.simplemaps.city.json' ),
-	ZipCode: require( './refs/ref.simplemaps.zip-code.json' ),
-	Country: require( './refs/ref.countries.json' ),
+	ZipCode: require( './refs/ref.locations.zip-code.json' ),
+	Country: require( './refs/ref.locations.countries.json' ),
 	StreetType: require( './refs/ref.street-types.json' ),
 	RoomType: require( './refs/ref.room-types.json' ),
 	Month: require( './refs/ref.months.json' ),
