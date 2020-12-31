@@ -2,6 +2,7 @@
 	"name": "@liquicode/lib-info-parse",
 	"version": "0.0.5",
 	"description": "A library to parse general information like names, addresses, phone numbers, etc.",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/liquicode/lib-info-parse"
